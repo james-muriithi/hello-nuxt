@@ -3,7 +3,7 @@
     <section class="intro">
       Get the latest tech news
     </section>
-    <posts-list isAdmin />
+    <posts-list :posts="posts" />
   </div>
 </template>
 
@@ -13,7 +13,31 @@ import PostsList from '~/components/Posts/PostsList.vue';
 export default {
   components: {
     PostsList
-  }
+  },
+  computed: {
+    posts() {
+      return this.$store.getters.posts
+    },
+  },
+  // asyncData(_, callback){
+  //   setTimeout(function(){
+  //     callback(null, {
+  //       posts : [
+  //       {
+  //         id: '1',
+  //         title: 'Post Title',
+  //         previewText: 'lorem ipsum',
+  //         thumbnail: 'https://blog.hootsuite.com/wp-content/uploads/2021/03/how-to-post-on-instagram-from-PC.jpg'
+  //       }
+  //     ]
+  //     })
+  //   },2000)
+  // }
+  // data(){
+  //   return {
+
+  //   }
+  // }
 }
 </script>
 

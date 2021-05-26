@@ -1,12 +1,14 @@
 <template>
   <section class="posts-list">
       <PostPreview
-      id="1"
-      previewText="lorem ipsum"
-      title="Post title"
+      v-for="post in posts"
+      :key="post.id"
+      :id="post.id"
+      :previewText="post.previewText"
+      :title="post.title"
       :isAdmin="isAdmin"
-      thumbnail="https://blog.hootsuite.com/wp-content/uploads/2021/03/how-to-post-on-instagram-from-PC.jpg"
-      ></PostPreview>
+      :thumbnail="post.thumbnail"
+      />
     </section>
 </template>
 
@@ -21,6 +23,10 @@ export default {
     isAdmin: {
       type: Boolean,
       default: false,
+    },
+    posts: {
+      type: Array,
+      required: true
     }
   }
 }

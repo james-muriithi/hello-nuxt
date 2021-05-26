@@ -1,18 +1,39 @@
 <template>
   <div class="single-post-page">
     <section class="post">
-      <h1 class="post-title">Title</h1>
+      <h1 class="post-title">{{post.title}}</h1>
       <div class="post-details">
-        <div class="post-detail"></div>
-        <div class="post-detail"></div>
-        <p class="post-content"></p>
+        <div class="post-detail">Last updated on {{post.updateDate}}</div>
+        <div class="post-detail">Author {{post.author}}</div>
       </div>
+       <p class="post-content">{{post.content}}</p>
     </section>
     <section class="post-feedback">
       <p></p>
     </section>
   </div>
 </template>
+
+<script>
+export default {
+  asyncData(context,callback){
+    console.log(context);
+    setTimeout(function(){
+      callback(null, {
+        post: {
+          id: '1',
+          title: 'Post Title',
+          author: 'James',
+          updateDate: new Date(),
+          content: 'lorem ipsum dolem isit',
+          previewText: 'lorem ipsum',
+          thumbnail: 'https://blog.hootsuite.com/wp-content/uploads/2021/03/how-to-post-on-instagram-from-PC.jpg'
+        }
+      })
+    }, 1000)
+  }
+}
+</script>
 
 <style scoped>
 .single-post-page {
