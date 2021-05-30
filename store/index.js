@@ -60,15 +60,27 @@ const createStore = () => {
         return axios
           .post(
             `https://hello-nuxt-254-default-rtdb.firebaseio.com/posts.json`,
-            {...post, updateDate: new Date()}
+            { ...post, updateDate: new Date() }
           )
           .then((res) => res.data)
           .then((data) => {
-            vuexContext.commit('addPost', {...post, id: data.name})
+            vuexContext.commit('addPost', { ...post, id: data.name })
           })
           .catch((e) => console.log(e))
       },
-      editPost(context, post) {},
+      editPost(vuexContext, post) {
+        post = {...post, updateDate: new Date()};
+
+        return axios
+          .put(
+            `https://hello-nuxt-254-default-rtdb.firebaseio.com/posts/${post.id}.json`,
+            post
+          )
+          .then(() => {
+            vuexContext.commit('editPost', post)
+          })
+          .catch((e) => console.log(e))
+      },
     },
   })
 }
