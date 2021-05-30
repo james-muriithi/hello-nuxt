@@ -5,7 +5,7 @@
     </section>
     <section class="existsing-posts">
       <h1>existsing posts</h1>
-      <posts-list />
+      <posts-list :posts="posts" isAdmin />
     </section>
   </div>
 </template>
@@ -15,7 +15,11 @@ import AppButton from '~/components/UI/AppButton.vue';
 
 export default {
   components: { PostsList, AppButton },
-
+  computed: {
+    posts() {
+      return this.$store.getters.posts
+    },
+  },
 }
 </script>
 

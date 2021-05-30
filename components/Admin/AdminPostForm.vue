@@ -4,8 +4,12 @@
 
     <AppControlInput v-model="editedPost.title">Title</AppControlInput>
 
-    <AppControlInput v-model="editedPost.thumbnailLink"
+    <AppControlInput v-model="editedPost.thumbnail"
       >Thumbnail Link</AppControlInput
+    >
+
+    <AppControlInput control-type="textarea" v-model="editedPost.previewText"
+      >Preview Text</AppControlInput
     >
 
     <AppControlInput control-type="textarea" v-model="editedPost.content"
@@ -46,14 +50,22 @@ export default {
         : {
             author: '',
             title: '',
-            thumbnailLink: '',
+            thumbnail: '',
             content: '',
+            previewText: '',
           },
     }
   },
   methods: {
     onSave() {
-      console.log(this.editedPost)
+      this.$emit('submit', this.editedPost)
+      // this.editedPost = {
+      //       author: '',
+      //       title: '',
+      //       thumbnail: '',
+      //       content: '',
+      //       previewText: '',
+      //     }
     },
     onCancel() {
       this.$router.push('/admin')

@@ -1,12 +1,12 @@
 <template>
   <div class="single-post-page">
     <section class="post">
-      <h1 class="post-title">{{post.title}}</h1>
+      <h1 class="post-title">{{ post.title }}</h1>
       <div class="post-details">
-        <div class="post-detail">Last updated on {{post.updateDate}}</div>
-        <div class="post-detail">Author {{post.author}}</div>
+        <div class="post-detail">Last updated on {{ post.updateDate }}</div>
+        <div class="post-detail">Author {{ post.author }}</div>
       </div>
-       <p class="post-content">{{post.content}}</p>
+      <p class="post-content">{{ post.content }}</p>
     </section>
     <section class="post-feedback">
       <p></p>
@@ -15,23 +15,21 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
-  asyncData(context,callback){
-    console.log(context);
-    setTimeout(function(){
-      callback(null, {
-        post: {
-          id: '1',
-          title: 'Post Title',
-          author: 'James',
-          updateDate: new Date(),
-          content: 'lorem ipsum dolem isit',
-          previewText: 'lorem ipsum',
-          thumbnail: 'https://blog.hootsuite.com/wp-content/uploads/2021/03/how-to-post-on-instagram-from-PC.jpg'
+  asyncData(context) {
+    return axios
+      .get(
+        `https://hello-nuxt-254-default-rtdb.firebaseio.com/posts/${context.params.id}.json`
+      )
+      .then((res) => res.data)
+      .then((data) => {
+        return {
+          post : data
         }
       })
-    }, 1000)
-  }
+      .catch((e) => context.error(e))
+  },
 }
 </script>
 
