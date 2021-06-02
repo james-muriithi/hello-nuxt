@@ -20,7 +20,7 @@ export default {
       this.$router.push('/admin')
     },
   },
-  middleware: 'auth'
+  middleware: ['check-auth','auth']
 }
 </script>
 
