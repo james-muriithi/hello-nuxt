@@ -8,7 +8,7 @@
 
 <script>
 import AdminPostForm from '~/components/Admin/AdminPostForm.vue'
-import axios from 'axios';
+import axios from 'axios'
 
 export default {
   components: {
@@ -22,21 +22,20 @@ export default {
       .then((res) => res.data)
       .then((data) => {
         return {
-          loadedPost : {...data, id: context.params.postId}
+          loadedPost: { ...data, id: context.params.postId },
         }
       })
       .catch((e) => context.error(e))
   },
   methods: {
-    async onSubmitted(editedPost){
+    async onSubmitted(editedPost) {
       await this.$store.dispatch('editPost', editedPost)
       this.$router.push('/admin')
-    }
+    },
   },
-  middleware: ['check-auth','auth']
+  middleware: ['check-auth', 'auth'],
 }
 </script>
-
 
 <style scoped>
 .update-form {

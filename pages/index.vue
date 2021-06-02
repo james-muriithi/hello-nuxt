@@ -1,8 +1,6 @@
 <template>
   <div class="home-page">
-    <section class="intro">
-      Get the latest tech news
-    </section>
+    <section class="intro">Get the latest tech news</section>
     <posts-list :posts="posts" />
   </div>
 </template>
@@ -66,5 +64,4 @@ export default {
     font-size: 2rem;
   }
 }
-
 </style>

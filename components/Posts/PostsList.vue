@@ -1,6 +1,6 @@
 <template>
   <section class="posts-list">
-      <PostPreview
+    <PostPreview
       v-for="post in posts"
       :key="post.id"
       :id="post.id"
@@ -8,16 +8,16 @@
       :title="post.title"
       :isAdmin="isAdmin"
       :thumbnail="post.thumbnail"
-      />
-    </section>
+    />
+  </section>
 </template>
 
 <script>
-import PostPreview from '@/components/Posts/PostPreview';
+import PostPreview from '@/components/Posts/PostPreview'
 
 export default {
   components: {
-    PostPreview
+    PostPreview,
   },
   props: {
     isAdmin: {
@@ -26,9 +26,9 @@ export default {
     },
     posts: {
       type: Array,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 }
 </script>
 

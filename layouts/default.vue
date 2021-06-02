@@ -13,18 +13,18 @@ import TheSidenav from '~/components/Navigation/TheSidenav'
 export default {
   components: {
     TheHeader,
-    TheSidenav
+    TheSidenav,
   },
-  data(){
+  data() {
     return {
-      show: false
+      show: false,
     }
   },
   methods: {
-    sidenavToggle(){
+    sidenavToggle() {
       this.show = !this.show
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -25,7 +25,7 @@ export default {
       .then((res) => res.data)
       .then((data) => {
         return {
-          post : data
+          post: data,
         }
       })
       .catch((e) => context.error(e))

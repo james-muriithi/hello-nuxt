@@ -16,11 +16,11 @@ export default {
   },
   methods: {
     async onSubmitted(postData) {
-      await this.$store.dispatch('addPost', postData);
+      await this.$store.dispatch('addPost', postData)
       this.$router.push('/admin')
     },
   },
-  middleware: ['check-auth','auth']
+  middleware: ['check-auth', 'auth'],
 }
 </script>
 
@@ -36,4 +36,3 @@ export default {
   }
 }
 </style>
-

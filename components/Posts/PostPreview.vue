@@ -3,12 +3,11 @@
     <article>
       <div
         class="post-thumbnail"
-        :style="
-          {backgroundImage: `url(${thumbnail})`}"
+        :style="{ backgroundImage: `url(${thumbnail})` }"
       ></div>
       <div class="post-content">
-        <h1>{{title}}</h1>
-        <p>{{previewText}}</p>
+        <h1>{{ title }}</h1>
+        <p>{{ previewText }}</p>
       </div>
     </article>
   </nuxt-link>
@@ -36,13 +35,13 @@ export default {
     isAdmin: {
       type: Boolean,
       required: true,
-    }
+    },
   },
   computed: {
-    postLink(){
-      return this.isAdmin ? `/admin/${this.id}` : `/posts/${this.id}`;
-    }
-  }
+    postLink() {
+      return this.isAdmin ? `/admin/${this.id}` : `/posts/${this.id}`
+    },
+  },
 }
 </script>
 

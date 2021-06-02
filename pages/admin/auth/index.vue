@@ -36,13 +36,15 @@ export default {
   layout: 'admin',
   methods: {
     onSubmit() {
-      this.$store.dispatch('authenticateUser', {
-        email: this.email,
-        password: this.password,
-        isLogin: this.isLogin,
-      }).then(() => {
-        this.$router.push('/admin')
-      })
+      this.$store
+        .dispatch('authenticateUser', {
+          email: this.email,
+          password: this.password,
+          isLogin: this.isLogin,
+        })
+        .then(() => {
+          this.$router.push('/admin')
+        })
     },
   },
 }
