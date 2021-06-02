@@ -5,12 +5,7 @@
 </template>
 
 <script>
-import PostsList from '~/components/Posts/PostsList.vue'
-
 export default {
-  components: {
-    PostsList,
-  },
   // fetch(context) {
     // return new Promise((resolve) => {
     //   setTimeout(function () {

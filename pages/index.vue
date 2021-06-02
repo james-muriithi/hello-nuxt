@@ -8,12 +8,7 @@
 </template>
 
 <script>
-import PostsList from '~/components/Posts/PostsList.vue';
-
 export default {
-  components: {
-    PostsList
-  },
   computed: {
     posts() {
       return this.$store.getters.posts
