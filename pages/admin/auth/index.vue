@@ -2,14 +2,20 @@
   <div class="admin-auth-page">
     <div class="auth-container">
       <form @submit.prevent="onSubmit">
-        <AppControlInput type="email">E-Mail Address</AppControlInput>
-        <AppControlInput type="password">Password</AppControlInput>
+        <AppControlInput type="email" v-model="email"
+          >E-Mail Address</AppControlInput
+        >
+        <AppControlInput type="password" v-model="password"
+          >Password</AppControlInput
+        >
         <AppButton type="submit">{{ isLogin ? 'Login' : 'Sign Up' }}</AppButton>
         <AppButton
           type="button"
           btn-style="inverted"
           style="margin-left: 10px"
-          @click="isLogin = !isLogin">Switch to {{ isLogin ? 'Signup' : 'Login' }}</AppButton>
+          @click="isLogin = !isLogin"
+          >Switch to {{ isLogin ? 'Signup' : 'Login' }}</AppButton
+        >
       </form>
     </div>
   </div>
@@ -22,15 +28,23 @@ export default {
   layout: 'admin',
   data() {
     return {
-      isLogin: true
+      isLogin: true,
+      email: '',
+      password: '',
     }
   },
   layout: 'admin',
   methods: {
-    onSubmit(){
-      axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=')
-    }
-  }
+    onSubmit() {
+      this.$store.dispatch('authenticateUser', {
+        email: this.email,
+        password: this.password,
+        isLogin: this.isLogin,
+      }).then(() => {
+        this.$router.push('/admin')
+      })
+    },
+  },
 }
 </script>
 

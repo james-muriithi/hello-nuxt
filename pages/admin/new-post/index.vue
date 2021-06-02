@@ -20,6 +20,7 @@ export default {
       this.$router.push('/admin')
     },
   },
+  middleware: 'auth'
 }
 </script>
 

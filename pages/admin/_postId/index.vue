@@ -32,7 +32,8 @@ export default {
       await this.$store.dispatch('editPost', editedPost)
       this.$router.push('/admin')
     }
-  }
+  },
+  middleware: 'auth'
 }
 </script>
 
